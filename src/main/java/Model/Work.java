@@ -22,6 +22,7 @@ import java.util.List;
 public class Work {
     
     // Pega o HTML, separa as informações dos jogos, grava nos devidos campos da classe entidade e envia para gravação no BD
+    //Recebe como parametro, quantos dias a partir de hoje, que será a data a ser verificada
     
     public void doStuff(int plusDays) throws FailingHttpStatusCodeException, IOException, SQLException, ParseException {
         
@@ -47,7 +48,7 @@ public class Work {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String parsedDate = formatter.format(initDate);
             game.setGameDate(parsedDate);
-            System.out.println("###################################\n               Jogo\n"+game.getHomeTeam()+" X "+game.getAwayTeam()+"\nHorário: "+gameHour+"\n"+game.getChampName());
+            System.out.println(game.getHomeTeam()+" X "+game.getAwayTeam()+"\nHorário: "+gameHour+"\n"+game.getChampName()+"\n\n#############################################");
             System.out.println("");
             DBRCaller dbrc = new DBRCaller(game);
         }
